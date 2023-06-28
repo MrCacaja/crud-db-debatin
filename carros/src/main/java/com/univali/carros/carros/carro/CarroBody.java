@@ -1,39 +1,20 @@
-package com.univali.carros.carros;
+package com.univali.carros.carros.carro;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
-@Entity
-public class Carro {
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
+public class CarroBody {
     private Integer id_modelo;
     private String nome;
     private Integer renavam;
-    private String placa;
-    private Float valor;
-    private Integer ano;
 
-    public Carro() { }
+    public CarroBody() {
+    }
 
-    public Carro(Integer id_modelo, String nome, Integer renavam, String placa, Float valor, Integer ano) {
-        this.id_modelo = id_modelo;
+    public CarroBody(Integer modelo_id, String nome, Integer renavam, String placa, Float valor, Integer ano) {
+        this.id_modelo = modelo_id;
         this.nome = nome;
         this.renavam = renavam;
         this.placa = placa;
         this.valor = valor;
         this.ano = ano;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public Integer getId_modelo() {
@@ -83,4 +64,8 @@ public class Carro {
     public void setAno(Integer ano) {
         this.ano = ano;
     }
+
+    private String placa;
+    private Float valor;
+    private Integer ano;
 }

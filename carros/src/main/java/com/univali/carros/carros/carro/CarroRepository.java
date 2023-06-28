@@ -1,4 +1,4 @@
-package com.univali.carros.carros;
+package com.univali.carros.carros.carro;
 
 import org.springframework.data.repository.CrudRepository;
 
