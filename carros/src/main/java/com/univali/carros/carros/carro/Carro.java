@@ -9,37 +9,48 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.validator.constraints.Range;
 
+//create table carro
+//        (
+//        id integer not null,
+//        id_modelo integer not null,
+//        nome varchar(50) not null,
+//        renavam integer not null,
+//        placa varchar(7) not null,
+//        valor decimal(10, 2) not null,
+//        ano year not null,
+//        primary key(id),
+//        foreign key(id_modelo) references modelo(id)
+//        );
+
 @Entity
 public class Carro {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
     @NotNull
     @ManyToOne
-    @JoinColumn(name="id_modelo")
+    @JoinColumn(name="id_modelo", referencedColumnName = "id")
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @MapsId
     private Modelo modelo;
     @NotBlank
     @NotNull
-    @Size(max=30)
+    @Size(max=50)
     private String nome;
     @NotNull
-    @Range(max= 99999999999L, min=100000000)
     private Integer renavam;
     @NotBlank
     @NotNull
     @Size(max=7)
     private String placa;
     @NotNull
-    private Float valor;
+    private Double valor;
     @NotNull
     @Range(max=2023, min=1900)
     private Integer ano;
 
     public Carro() { }
 
-    public Carro(Modelo modelo, String nome, Integer renavam, String placa, Float valor, Integer ano) {
+    public Carro(Modelo modelo, String nome, Integer renavam, String placa, Double valor, Integer ano) {
         this.modelo = modelo;
         this.nome = nome;
         this.renavam = renavam;
@@ -88,11 +99,11 @@ public class Carro {
         this.placa = placa;
     }
 
-    public Float getValor() {
+    public Double getValor() {
         return valor;
     }
 
-    public void setValor(Float valor) {
+    public void setValor(Double valor) {
         this.valor = valor;
     }
 

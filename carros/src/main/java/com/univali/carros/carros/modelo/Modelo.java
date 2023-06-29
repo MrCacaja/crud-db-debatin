@@ -8,20 +8,28 @@ import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+//create table modelo
+//        (
+//        id integer not null,
+//        id_marca integer not null,
+//        nome varchar(50) not null,
+//        primary key(id),
+//        foreign key(id_marca) references marca(id)
+//        );
+
 @Entity
 public class Modelo {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
     @NotNull
     @ManyToOne
     @JoinColumn(name="id_marca", referencedColumnName="id")
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @MapsId
     private Marca marca;
     @NotBlank
     @NotNull
-    @Size(max=30)
+    @Size(max=50)
     private String nome;
 
     public Modelo() { }

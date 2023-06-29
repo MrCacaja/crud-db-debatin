@@ -4,11 +4,14 @@ public class CarroBody {
     private Integer id_modelo;
     private String nome;
     private Integer renavam;
+    private String placa;
+    private Double valor;
+    private Integer ano;
 
     public CarroBody() {
     }
 
-    public CarroBody(Integer modelo_id, String nome, Integer renavam, String placa, Float valor, Integer ano) {
+    public CarroBody(Integer modelo_id, String nome, Integer renavam, String placa, Double valor, Integer ano) {
         this.id_modelo = modelo_id;
         this.nome = nome;
         this.renavam = renavam;
@@ -49,11 +52,11 @@ public class CarroBody {
         this.placa = placa;
     }
 
-    public Float getValor() {
+    public Double getValor() {
         return valor;
     }
 
-    public void setValor(Float valor) {
+    public void setValor(Double valor) {
         this.valor = valor;
     }
 
@@ -64,8 +67,4 @@ public class CarroBody {
     public void setAno(Integer ano) {
         this.ano = ano;
     }
-
-    private String placa;
-    private Float valor;
-    private Integer ano;
 }
